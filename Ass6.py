@@ -69,15 +69,58 @@ class Dcll:
                 temp1.prev=temp
                 temp1.next=temp.next
                 temp.next.prev=temp1
-                temp.next=temp1    
+                temp.next=temp1   
+
+    def delete_at_first(self):
+        if self.is_empty():
+            print("Your list is empty :")
+        else:
+            self.start.next.prev=self.start.prev
+            self.start.prev.next=self.start.next
+            self.start=self.start.next
+
+    def delete_at_last(self):
+        if self.is_empty():
+            print("Your list is empty :")
+        else:
+            # temp=self.start.prev
+            # temp.prev.next=temp.next 
+            # self.start.prev=temp.prev
+            self.start.prev.prev.next=self.start
+            self.start.prev=self.start.prev.prev
+
+    def deleteitem(self,index):
+        if self.is_empty():
+            print("Your list is empty :")
+        elif index is self.start:
+            self.delete_at_first()
+        elif index.prev is self.start.prev.prev :
+            self.delete_at_last()
+        else:
+            index.next.prev=index.prev
+            index.prev.next=index.next
+            
 
 dl1=Dcll()
 dl1.insert_at_start(11)
 dl1.insert_at_start(20)
 dl1.insert_at_last(22)
 dl1.insert_at_last(23)
+dl1.insert_at_last(25)
 dl1.insert_after(22,24)
 
 
 
+
 dl1.Print_list()
+print()
+
+
+dl1.delete_at_first()
+dl1.delete_at_last()
+dl1.deleteitem(dl1.search(24))
+dl1.Print_list()
+
+
+
+
