@@ -10,12 +10,12 @@ class stack:
         if self.is_empty():
             raise IndexError("Stack is Empty")
         else:
-            return self.items.pop()
+            return self.l1.pop()
             # del self.l1[-1]
             
 
     def is_empty(self):
-        # return len(self.items)==0
+        # return len(self.l1)==0
         return self.l1 == []
 
     def peek(self):
