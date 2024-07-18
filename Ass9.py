@@ -33,7 +33,7 @@ class Stack:
         return self.item_count
     
 
-s =  Stack()
+s=Stack()
 s.push(21)
 s.push(22)
 s.push(23)
