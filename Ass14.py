@@ -15,16 +15,17 @@ class Queue:
         temp= Node(item)
         if self.is_empty():
             self.front=temp
-            self.rear=temp
-            self.item_count+=1
         else:
             self.rear.next=temp
-            self.rear=temp
-            self.item_count+=1
+        self.rear=temp
+        self.item_count+=1
         
     def dequeue(self):
         if self.is_empty():
             raise IndexError("Queue is Empty")
+        elif self.front==self.rear:
+            self.front=None
+            self.rear=None
         else:
             self.front = self.front.next
             self.item_count-=1
