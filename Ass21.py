@@ -22,6 +22,7 @@ class Graph:
             return self.adj_matrix!=0
         else:
             print("Invalid...")
+            return False
 
     def print_adj_matrix(self):
         for i in self.adj_matrix:
